@@ -43,6 +43,29 @@ const data = [
   }
 ];
 
+//FUNZIONI
+function changePic(target) {
+  images[currentActiveIndex].classList.remove('active');
+  thumbs[currentActiveIndex].classList.remove('active');
+
+if (target === 'next') {
+  currentActiveIndex++;
+
+  if (currentActiveIndex === images.length) currentActiveIndex = 0;
+
+} else if (target === 'prev') {
+  currentActiveIndex--;
+
+  if (currentActiveIndex < 0) currentActiveIndex = images.length - 1;
+} else {
+  currentActiveIndex = target;
+}
+
+images[currentActiveIndex].classList.add('active');
+thumbs[currentActiveIndex].classList.add('active');
+}
+
+
 //Array con url immagini
 const pictures = [
   'img/01.webp',
@@ -67,3 +90,25 @@ let imageElements = '';
  gallery.innerHTML = imageElements;
  thumbGallery.innerHTML = imageElements;
 
+//Recupero immagini e thumbnails
+const images = document.querySelectorAll('.gallery img');
+const thumbs = document.querySelectorAll('#thumbnails img');
+
+//Aggiungo la classe Active alla prima immagine/thumbnails
+let currentActiveIndex = 0;
+images[currentActiveIndex].classList.add('active');
+thumbs[currentActiveIndex].classList.add('active');
+
+//Recupero i bottoni 
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+
+//Aggancio evento al bottone next
+next.addEventListener('click', function() {
+  changePic('next');
+});
+
+//Aggancio evento al bottone prev
+prev.addEventListener('click', function() {
+  changePic('prev');
+});

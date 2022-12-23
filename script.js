@@ -43,20 +43,16 @@ const data = [
   }
 ];
 
+//Array con url immagini
+const pictures = [
+  'img/01.webp',
+  'img/02.webp',
+  'img/03.webp',
+  'img/04.webp',
+  'img/05.webp',
+];
+
 //Prendo gli elementi dal DOM
-const mainImg = document.getElementById("main-img");
-const thumb = document.getElementById("thumb");
-const prev = document.getElementById("arrow-left");
-const next = document.getElementById("arrow-right");
+const gallery = document.querySelector('#carousel .gallery');
+const thumbGallery = document.getElementById('thumbnails');
 
-data.forEach((ImageGames, index) => {
-  console.log(ImageGames, index);
-
-  mainImg.innerHTML = `
-  <img src=${ImageGames.image}>
-  
-  `;
-
-  thumb.innerHTML += `<div class="col"><img src=${ImageGames.image}></div>
-  `;
-});

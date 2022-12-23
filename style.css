@@ -38,6 +38,10 @@ body{
     border-radius: 10px;
 }
 
+/* .gallery img.active {
+    display: block;
+} */
+
 .gallery figcaption {
     position: absolute;
     bottom: 20px;

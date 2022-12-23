@@ -18,8 +18,8 @@ BONUS 3:
 Aggiungere bottoni di start/stop  del meccanismo di autoplay.
 Buon lavoro e buon divertimento! */
 
-
-const data = [
+//Array con url immagini
+const pictures = [
   {
     image: 'img/01.webp',
     title: 'Marvel\'s Spiderman Miles Morale',
@@ -66,32 +66,37 @@ thumbs[currentActiveIndex].classList.add('active');
 }
 
 
-//Array con url immagini
-const pictures = [
-  'img/01.webp',
-  'img/02.webp',
-  'img/03.webp',
-  'img/04.webp',
-  'img/05.webp',
-];
+
 
 //Prendo gli elementi dal DOM
 const gallery = document.querySelector('#carousel .gallery');
 const thumbGallery = document.getElementById('thumbnails');
 
 //Dato che le immagini di galley e thumbnails sono le stesse, unifico il processo
-let imageElements = '';
+let galleryElements = '';
+let thumbsElements = '';
 
  for (let i = 0; i < pictures.length; i++) {
-  imageElements += `<img src="${pictures[i]}" alt="...">`;
+  const img = `<img src="${pictures[i].image}" alt=""></img>`
+  thumbsElements += img;
+
+  galleryElements += `
+        <figure>
+          <img src="${pictures[i].image}" alt="">
+          <figcaption>
+            <h2>${pictures[i].title}</h2>
+            <h3>${pictures[i].text}</h3>
+          </figcaption>
+        </figure>
+  `;
  }
 
  //Stampo in pagina
- gallery.innerHTML = imageElements;
- thumbGallery.innerHTML = imageElements;
+ gallery.innerHTML = galleryElements;
+ thumbGallery.innerHTML = thumbsElements;
 
 //Recupero immagini e thumbnails
-const images = document.querySelectorAll('.gallery img');
+const images = document.querySelectorAll('.gallery figure');
 const thumbs = document.querySelectorAll('#thumbnails img');
 
 //Aggiungo la classe Active alla prima immagine/thumbnails

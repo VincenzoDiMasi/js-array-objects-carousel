@@ -27,7 +27,7 @@ body{
     object-fit: cover;
     cursor: pointer;
     border: 10px solid transparent;
-     border-radius: 20px;
+    border-radius: 20px;
 }
   
 .arrow-left {

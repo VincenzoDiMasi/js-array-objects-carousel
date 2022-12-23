@@ -49,4 +49,14 @@ const thumb = document.getElementById("thumb");
 const prev = document.getElementById("arrow-left");
 const next = document.getElementById("arrow-right");
 
+data.forEach((ImageGames, index) => {
+  console.log(ImageGames, index);
 
+  mainImg.innerHTML = `
+  <img src=${ImageGames.image}>
+  
+  `;
+
+  thumb.innerHTML += `<div class="col"><img src=${ImageGames.image}></div>
+  `;
+});

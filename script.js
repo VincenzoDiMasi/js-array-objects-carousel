@@ -56,3 +56,14 @@ const pictures = [
 const gallery = document.querySelector('#carousel .gallery');
 const thumbGallery = document.getElementById('thumbnails');
 
+//Dato che le immagini di galley e thumbnails sono le stesse, unifico il processo
+let imageElements = '';
+
+ for (let i = 0; i < pictures.length; i++) {
+  imageElements += `<img src="${pictures[i]}" alt="...">`;
+ }
+
+ //Stampo in pagina
+ gallery.innerHTML = imageElements;
+ thumbGallery.innerHTML = imageElements;
+
